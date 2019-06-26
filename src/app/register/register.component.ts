@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MeanStackAppService } from '.././shared/services/meanStackApp.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.sass']
+  styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(public formBuilder: FormBuilder, public meanStackAppService: MeanStackAppService) { }
+  constructor(public formBuilder: FormBuilder, public meanStackAppService: MeanStackAppService, private router: Router) { }
 
   public registerForm: FormGroup;
   ngOnInit() {
@@ -31,6 +32,8 @@ export class RegisterComponent implements OnInit {
     }
     this.meanStackAppService.postRegister(body).subscribe(res => {
       console.log('res', res)
+      alert('Successfully registered!');
+      this.router.navigateByUrl('login')
     }, err => {
       console.log('err', err.error)
     })
