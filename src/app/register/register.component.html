@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-card-title>Sign up!</mat-card-title>
+  <mat-card-content >
+    <form [formGroup]="registerForm" style="display: flex; flex-direction: column;">
+      <mat-form-field>
+        <input matInput placeholder="Full Name" formControlName="fullName">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Email" formControlName="email">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Username" formControlName="userName">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="password" placeholder="Password" formControlName="passWord">
+      </mat-form-field>
+    </form>
+    <button mat-raised-button color="primary" (click)="onSubmit()">Sign up</button>
+    <button mat-raised-button color="accent" (click)="onReset()">Reset</button>
+  </mat-card-content>
+</mat-card>
