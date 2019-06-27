@@ -2,7 +2,7 @@
   Welcome {{fullName}}, "{{userName}}" is how we recognise you. 
 </h1>
 
-<h4>
-  Raggy's working on this page. So...
-  Please <button (click)="onLogout()">Logout!</button>
-</h4>
+<mat-form-field class="example-full-width">
+  <input matInput placeholder="Input" [(ngModel)]="message">
+</mat-form-field>
+<button (click)="sendMessage()">Send</button>
