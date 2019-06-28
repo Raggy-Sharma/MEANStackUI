@@ -13,21 +13,43 @@ export class ChatService {
     this.socket = io(this.url);
   }
 
-  sendMessage(message) {
+  sendMessage(message, username) {
     console.log(this.socket.connected)
-    this.socket.emit('new-message', message);
+    this.socket.emit('new-message', message, username);
   }
 
   getMessages() {
     let observable = new Observable(observer => {
       this.socket = io(this.url);
       this.socket.on('message', (data) => {
-        observer.next(data);    
+        observer.next(data);
       });
       return () => {
         this.socket.disconnect();
-      };  
-    })     
+      };
+    })
     return observable;
-  }  
+  }
+
+  getTypeing() {
+    let observable = new Observable(observer => {
+      this.socket = io(this.url);
+      this.socket.on('typing', (data) => {
+        observer.next(data);
+      });
+      return () => {
+        this.socket.disconnect();
+      };
+    })
+    return observable;
+  }
+
+  sendUsername(username){
+    console.log(username)
+    this.socket.emit('username', username);
+  }
+
+  sendTyping(username){
+    this.socket.emit('typing', username);
+  }
 }

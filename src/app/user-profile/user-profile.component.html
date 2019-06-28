@@ -1,8 +1,21 @@
 <h1>
-  Welcome {{fullName}}, "{{userName}}" is how we recognise you. 
+  Welcome {{userName}}, 
+  <br>
 </h1>
 
+
+<p>Server says...</p>
+
+<div *ngFor="let msg of messages">
+  {{msg}}
+</div>
+<div *ngFor="let msg of typing">
+  {{msg}}
+</div>
+
 <mat-form-field class="example-full-width">
-  <input matInput placeholder="Input" [(ngModel)]="message">
+  <input matInput placeholder="Input" (focus)="sendTyping()" [(ngModel)]="message">
 </mat-form-field>
 <button (click)="sendMessage()">Send</button>
+
+<button (click)="onLogout()">logout</button>

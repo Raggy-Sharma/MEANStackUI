@@ -16,22 +16,46 @@ export class UserProfileComponent implements OnInit {
   userName: string;
 
   message;
+  messages = [];
+  typing = [];
+  connection;
 
   ngOnInit() {
     this.meanstackService.getUerProfile().subscribe(res => {
       this.fullName = res['user'].fullName;
       this.userName = res['user'].userName;
+      this.chatService.sendUsername(this.userName);
     }, err => {
       console.log(err)
+    })
+
+    
+
+    this.connection = this.chatService.getMessages().subscribe(message => {
+      this.messages.push(message);
+      console.log(this.messages)
+    })
+    this.connection = this.chatService.getTypeing().subscribe(message => {
+      this.typing.push(message);
+      setTimeout(() => {
+        var i = this.typing.indexOf(message);
+        this.typing.splice(i-1, 1)
+      }, 3000);
     })
   }
 
   sendMessage(){
-    this.chatService.sendMessage(this.message);
+    console.log(this.userName);
+    this.chatService.sendMessage(this.message, this.userName);
+    this.message = '';
   }
 
   onLogout(){
     this.authSrvc.logout();
+    this.connection.unsubscribe();
   }
 
+  sendTyping(){
+    this.chatService.sendTyping(this.userName)
+  }
 }
