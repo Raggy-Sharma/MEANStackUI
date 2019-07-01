@@ -1,16 +1,19 @@
-<mat-card class="actionCard">
-  <mat-card-title class="matCardTitle">Sign in!</mat-card-title>
-  <mat-card-content >
-    <form class="registerForm" [formGroup]="loginForm" style="display: flex; flex-direction: column;">
-      <mat-form-field>
-        <input matInput placeholder="Username" formControlName="userName">
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput type="password" placeholder="Password" formControlName="passWord">
-      </mat-form-field>
-    </form>
-    <button mat-raised-button color="primary" class="actionButton" (click)="onSubmit()">Sign in</button>
-    <button mat-raised-button color="accent" class="actionButton" (click)="onReset()">Reset</button>
-  </mat-card-content>
-  <mat-card-footer class="registerHyperlink" (click)="navigate()"><u>Not registered yet? Click here!</u></mat-card-footer>
-</mat-card>
+<div fxFlex="100%" fxLayout="cloumn" fxLayoutAlign="end end" fxLayoutAlign.xs="center stretch" class="matCardContainer">
+  <mat-card class="actionCard" fxFlex="40%" fxFlex.xs="100%" fxLayout="column">
+    <mat-card-title class="matCardTitle">Sign in!</mat-card-title>
+    <mat-card-content>
+      <form class="registerForm" [formGroup]="loginForm" style="display: flex; flex-direction: column;">
+        <mat-form-field>
+          <input matInput placeholder="Username" formControlName="userName">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="password" placeholder="Password" formControlName="passWord">
+        </mat-form-field>
+      </form>
+      <button mat-raised-button color="primary" class="actionButton" (click)="onSubmit()">Sign in</button>
+      <button mat-raised-button color="accent" class="actionButton" (click)="onReset()">Reset</button>
+    </mat-card-content>
+    <mat-card-footer class="registerHyperlink" (click)="navigate()"><u>Not registered yet? Click here!</u>
+    </mat-card-footer>
+  </mat-card>
+</div>
