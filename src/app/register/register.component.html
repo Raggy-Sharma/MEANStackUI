@@ -1,7 +1,7 @@
 <mat-card class="actionCard">
-  <mat-card-title>Sign up!</mat-card-title>
+  <mat-card-title class="matCardTitle">Sign up!</mat-card-title>
   <mat-card-content >
-    <form class="signInForm" [formGroup]="registerForm" style="display: flex; flex-direction: column;">
+    <form class="registerForm" [formGroup]="registerForm" style="display: flex; flex-direction: column;">
       <mat-form-field>
         <input matInput placeholder="Full Name" formControlName="fullName">
       </mat-form-field>
@@ -15,7 +15,8 @@
         <input matInput type="password" placeholder="Password" formControlName="passWord">
       </mat-form-field>
     </form>
-    <button mat-raised-button color="primary" (click)="onSubmit()">Sign up</button>
-    <button mat-raised-button color="accent" (click)="onReset()">Reset</button>
+    <button mat-raised-button color="primary" class="actionButton" (click)="onSubmit()">Sign up</button>
+    <button mat-raised-button color="accent" class="actionButton" (click)="onReset()">Reset</button>
   </mat-card-content>
+  <mat-card-footer class="registerHyperlink" (click)="navigate()"><u>Already registered? Click here!</u></mat-card-footer>
 </mat-card>

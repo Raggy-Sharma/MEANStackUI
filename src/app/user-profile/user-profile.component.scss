@@ -1,0 +1,43 @@
+.chatCard {
+  position: absolute;
+  width: 25%;
+  top: 10%;
+  margin: 50px;
+  min-height: 90%;
+  .chatTextBox {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    margin: 10px;
+    max-width: 100%;
+  }
+  .actionButton {
+    margin-left: 2%;
+  }
+  
+  .sendButton{
+    position: absolute;
+    bottom: -10px;
+  }
+  .chatMsg{
+      min-height: 30px;
+      background-color: rgb(235, 231, 231);
+      text-align: center;
+      width: 60%;
+      border-radius: 25px;
+      float: left;
+      p{
+          padding: 2px;
+      }
+  }
+}
+.registerHyperlink {
+    right: 0;
+    margin: 5%;
+    font-size: 10px;
+    color: antiquewhite;
+    cursor: pointer;
+  }
+  .registerHyperlink:hover {
+    color: #f31a1a;
+  }

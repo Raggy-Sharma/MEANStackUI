@@ -42,4 +42,8 @@ export class LoginComponent implements OnInit {
     this.loginForm.reset()
   }
 
+  navigate(){
+    this.router.navigateByUrl('register');
+  }
+
 }

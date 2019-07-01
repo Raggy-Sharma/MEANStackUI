@@ -44,6 +44,19 @@ export class ChatService {
     return observable;
   }
 
+  getUserLoggedin(){
+    let observable = new Observable(observer => {
+      this.socket = io(this.url);
+      this.socket.on('userLoggedIn', (data) => {
+        observer.next(data);
+      });
+      return () => {
+        this.socket.disconnect();
+      };
+    })
+    return observable;
+  }
+
   sendUsername(username){
     console.log(username)
     this.socket.emit('username', username);

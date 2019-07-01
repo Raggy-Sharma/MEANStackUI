@@ -1,4 +1,4 @@
-<h1>
+<!-- <h1>
   Welcome {{userName}}, 
   <br>
 </h1>
@@ -18,4 +18,30 @@
 </mat-form-field>
 <button (click)="sendMessage()">Send</button>
 
-<button (click)="onLogout()">logout</button>
+<button (click)="onLogout()">logout</button> -->
+
+<mat-card class="chatCard">
+  <mat-card-title class="matCardTitle">Let's gooooo
+    <div *ngFor="let msg of users">
+      <p>{{msg}}</p>
+    </div>
+  </mat-card-title>
+  <mat-card-content>
+    <div *ngFor="let msg of messages" class="chatMsg">
+      <p>{{msg}}</p>
+    </div>
+    <div *ngFor="let msg of typing" class="chatMsg">
+      <p>{{msg}}</p>
+    </div>
+    <div class="chatTextBox">
+      <mat-form-field style="width: 75%">
+        <input matInput placeholder="Input" (focus)="sendTyping()" [(ngModel)]="message">
+        <button mat-icon-button type="button" class="sendButton" (click)="sendMessage()">
+          <mat-icon class="material-icons color_green">send</mat-icon>
+        </button>
+      </mat-form-field>
+
+    </div>
+  </mat-card-content>
+</mat-card>
+<p class="registerHyperlink" (click)="onLogout()"><u>Logout</u></p>
