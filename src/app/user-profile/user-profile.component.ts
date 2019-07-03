@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MeanStackAppService } from '../shared/services/meanStackApp.service';
 import { AuthService } from '../shared/services/auth.service';
 import { ChatService } from '../shared/services/chat.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-profile',
@@ -10,7 +11,7 @@ import { ChatService } from '../shared/services/chat.service';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor(private meanstackService: MeanStackAppService, private authSrvc: AuthService, public chatService: ChatService) { }
+  constructor(private meanstackService: MeanStackAppService, private authSrvc: AuthService, public chatService: ChatService, private route: ActivatedRoute) { }
 
   fullName: string;
   userName: string;
@@ -25,7 +26,7 @@ export class UserProfileComponent implements OnInit {
     this.meanstackService.getUerProfile().subscribe(res => {
       this.fullName = res['user'].fullName;
       this.userName = res['user'].userName;
-      this.chatService.sendUsername(this.userName);
+      this.chatService.startConnection(this.userName);
     }, err => {
       console.log(err)
     })
@@ -33,8 +34,8 @@ export class UserProfileComponent implements OnInit {
 
 
     this.connection = this.chatService.getMessages().subscribe(message => {
-      this.messages.push(message);
-      console.log(this.messages)
+      // this.messages.push(message);
+      console.log(message)
     })
     this.connection = this.chatService.getTypeing().subscribe(message => {
       this.typing.push(message);

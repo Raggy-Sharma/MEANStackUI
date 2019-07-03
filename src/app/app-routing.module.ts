@@ -21,10 +21,10 @@ const routes: Routes = [
     loadChildren: '././login/login.module#LoginModule'
   },
   {
-    path: 'userProfile',
+    path: 'userProfile/:id',
     loadChildren: '././user-profile/user-profile.module#UserProfileModule',
     canActivate: [AuthGuard]
-  }
+  },
 ];
 
 @NgModule({

@@ -4,7 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { UserProfileRoutingModule } from './user-profile-routing.module';
 import { UserProfileComponent } from './user-profile.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatInputModule, MatFormFieldModule, MatCardModule, MatButtonModule, MatIconModule } from '@angular/material';
+
 
 @NgModule({
   declarations: [UserProfileComponent],
@@ -16,7 +18,8 @@ import { MatInputModule, MatFormFieldModule, MatCardModule, MatButtonModule, Mat
     MatFormFieldModule,
     MatCardModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    FlexLayoutModule
   ]
 })
 export class UserProfileModule { }

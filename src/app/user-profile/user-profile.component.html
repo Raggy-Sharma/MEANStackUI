@@ -20,28 +20,52 @@
 
 <button (click)="onLogout()">logout</button> -->
 
-<mat-card class="chatCard">
-  <mat-card-title class="matCardTitle">Let's gooooo
-    <div *ngFor="let msg of users">
-      <p>{{msg}}</p>
+<!-- <div fxFlex="100%" fxLayout="cloumn" fxLayout.xs="row wrap" fxLayoutGap="10%">
+  <mat-card class="chatCard" fxFlex="50%" fxFlex.xs="100%">
+    <div fxLayout="row">
+      <mat-card-title fxLayout="cloumn" fxFlex="100" class="matCardTitle">Let's gooooo
+      </mat-card-title>
+      <mat-card-content fxFlex="100%" fxLayoutGap="10%">
+        <mat-form-field>
+          <input matInput [(ngModel)]="message">
+          <mat-icon matSuffix (click)="sendMessage()">send</mat-icon>
+        </mat-form-field>
+      </mat-card-content>
     </div>
-  </mat-card-title>
-  <mat-card-content>
-    <div *ngFor="let msg of messages" class="chatMsg">
-      <p>{{msg}}</p>
-    </div>
-    <div *ngFor="let msg of typing" class="chatMsg">
-      <p>{{msg}}</p>
-    </div>
-    <div class="chatTextBox">
-      <mat-form-field style="width: 75%">
-        <input matInput placeholder="Input" (focus)="sendTyping()" [(ngModel)]="message">
-        <button mat-icon-button type="button" class="sendButton" (click)="sendMessage()">
-          <mat-icon class="material-icons color_green">send</mat-icon>
-        </button>
-      </mat-form-field>
 
-    </div>
-  </mat-card-content>
-</mat-card>
-<p class="registerHyperlink" (click)="onLogout()"><u>Logout</u></p>
+  </mat-card>
+  <mat-card class="chatCard" fxFlex="50%" fxFlex.xs="100%" fxLayout.xs="row">
+    <mat-card-title class="matCardTitle">Online users
+    </mat-card-title>
+    <mat-card-content>
+
+    </mat-card-content>
+  </mat-card>
+</div> -->
+
+<div fxLayout="row" fxLayout.xs="column" fxAlign.xs="center center" fxLayoutGap="20px">
+  <div fxFlex="50%">
+    <mat-card class="chatCard">
+      <mat-card-header>
+        <mat-card-title>TheChatApp</mat-card-title>
+        <mat-card-subtitle style="float: right">{{userName}}<mat-icon matSuffix style="background-color: green">
+            check_circle_outline</mat-icon>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div *ngFor="let message of messages" [ngClass]="messageType">
+          {{message.user}}<br>
+          {{message.message}}
+        </div>
+        <div style="min-height: 200px; background-color: greenyellow">nvmnvm</div>
+      </mat-card-content>
+      <mat-card-actions>
+        <mat-form-field>
+          <input matInput [(ngModel)]="message" (focus)="sendTyping()">
+          <mat-icon matSuffix (click)="sendMessage()">send</mat-icon>
+        </mat-form-field>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <div style="background-color: white; margin: 20%;" fxFlex="50%" fxHide.xs="true"><button (click)="onLogout()">logout</button></div>
+</div>
