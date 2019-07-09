@@ -19,7 +19,7 @@ export class UserProfileComponent implements OnInit {
   message;
   messages = [];
   typing = [];
-  users = [];
+  users;
   connection;
 
   ngOnInit() {
@@ -28,32 +28,15 @@ export class UserProfileComponent implements OnInit {
       this.userName = res['user'].userName;
       this.chatService.startConnection(this.userName);
       this.connection = this.chatService.getMessages(this.userName).subscribe(message => {
-        // this.messages.push(message);
+        this.messages.push(message);
         console.log(message)
+      });
+      this.connection = this.chatService.getOnlineUsers().subscribe(user => {
+        this.users = user;
       })
     }, err => {
       console.log(err)
     })
-
-
-
-    
-    this.connection = this.chatService.getTypeing().subscribe(message => {
-      this.typing.push(message);
-      setTimeout(() => {
-        var i = this.typing.indexOf(message);
-        this.typing.splice(i - 1, 1)
-      }, 3000);
-    });
-
-    this.connection = this.chatService.getUserLoggedin().subscribe(user => {
-      this.users.push(user);
-      setTimeout(() => {
-        var i = this.typing.indexOf(user);
-        this.users.splice(i - 1, 1)
-      }, 2000);
-    })
-
   }
 
   sendMessage() {
@@ -65,9 +48,5 @@ export class UserProfileComponent implements OnInit {
   onLogout() {
     this.authSrvc.logout();
     this.connection.unsubscribe();
-  }
-
-  sendTyping() {
-    this.chatService.sendTyping(this.userName)
   }
 }

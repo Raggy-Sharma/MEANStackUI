@@ -48,10 +48,9 @@ export class ChatService {
     return observable;
   }
 
-  getUserLoggedin(){
+  getOnlineUsers(){
     let observable = new Observable(observer => {
-      this.socket = io(this.url);
-      this.socket.on('userLoggedIn', (data) => {
+      this.socket.on('onlineUsers', (data) => {
         observer.next(data);
       });
       return () => {

@@ -67,5 +67,9 @@
       </mat-card-actions>
     </mat-card>
   </div>
-  <div style="background-color: white; margin: 20%;" fxFlex="50%" fxHide.xs="true"><button (click)="onLogout()">logout</button></div>
+  <div style="background-color: white; margin: 20%;" fxFlex="50%" fxHide.xs="true">
+    <div *ngFor="let user of users" style="padding: 5%">
+      {{user}}
+    </div>
+    <button (click)="onLogout()">logout</button></div>
 </div>
