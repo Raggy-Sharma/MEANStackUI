@@ -32,15 +32,7 @@ export class LoginComponent implements OnInit {
     this.meanStackService.postLogin(body).subscribe(res => {
       console.log(res)
       this.authService.setToken(res['token']);
-      this.meanStackService.getUerProfile().subscribe(res => {
-        this.router.navigate(['userProfile', res['user'].userName]).then((e) => {
-          if (e) {
-            console.log("Navigation is successful!");
-          } else {
-            console.log("Navigation has failed!");
-          }
-        });
-      });
+      this.router.navigateByUrl('userProfile')
     }, err => {
       alert(err.error.message)
     })

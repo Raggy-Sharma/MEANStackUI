@@ -6,25 +6,25 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ChatService {
-  private url = 'http://localhost:3000';
+  private url = 'http://localhost:3000/userProfile';
   private socket;
 
   constructor() {
   }
 
   startConnection(userName){
-    this.socket = io(this.url);
-    this.socket.emit('userName', userName);
+    this.socket = io(this.url, { query: `userId=${userName}` });
+    // this.socket.emit('userName', userName);
   }
 
   sendMessage(message, username) {
-    console.log(this.socket.connected)
     this.socket.emit('new-message', message, username);
   }
 
-  getMessages() {
+  getMessages(fromUser) {
+    console.log('came')
     let observable = new Observable(observer => {
-      this.socket = io(this.url+'/userProfile/raggy28');
+      // this.socket = io(this.url, { query: `userId=${fromUser}` });
       this.socket.on('message', (data) => {
         observer.next(data);
       });

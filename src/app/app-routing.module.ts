@@ -21,7 +21,7 @@ const routes: Routes = [
     loadChildren: '././login/login.module#LoginModule'
   },
   {
-    path: 'userProfile/:id',
+    path: 'userProfile',
     loadChildren: '././user-profile/user-profile.module#UserProfileModule',
     canActivate: [AuthGuard]
   },

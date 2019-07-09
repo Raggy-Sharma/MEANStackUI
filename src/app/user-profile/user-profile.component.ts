@@ -27,16 +27,17 @@ export class UserProfileComponent implements OnInit {
       this.fullName = res['user'].fullName;
       this.userName = res['user'].userName;
       this.chatService.startConnection(this.userName);
+      this.connection = this.chatService.getMessages(this.userName).subscribe(message => {
+        // this.messages.push(message);
+        console.log(message)
+      })
     }, err => {
       console.log(err)
     })
 
 
 
-    this.connection = this.chatService.getMessages().subscribe(message => {
-      // this.messages.push(message);
-      console.log(message)
-    })
+    
     this.connection = this.chatService.getTypeing().subscribe(message => {
       this.typing.push(message);
       setTimeout(() => {
@@ -57,7 +58,7 @@ export class UserProfileComponent implements OnInit {
 
   sendMessage() {
     console.log(this.userName);
-    this.chatService.sendMessage(this.message, this.userName);
+    this.chatService.sendMessage(this.message, 'ragg92');
     this.message = '';
   }
 
