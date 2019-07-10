@@ -1,43 +1,77 @@
-.chatCard {
-  // position: absolute;
-  // width: 25%;
-  // top: 10%;
-  margin: 50px;
-  height: 90%;
-  .chatTextBox {
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    margin: 10px;
-    max-width: 100%;
-  }
-  .actionButton {
-    margin-left: 2%;
-  }
-  
-  .sendButton{
-    position: absolute;
-    bottom: -10px;
-  }
-  .chatMsg{
-      min-height: 30px;
-      background-color: rgb(235, 231, 231);
-      text-align: center;
-      width: 60%;
-      border-radius: 25px;
-      float: left;
-      p{
-          padding: 2px;
-      }
-  }
-}
-.registerHyperlink {
-    right: 0;
+.chatPageContainer{
+  margin: 5%;
+  background-color: aliceblue;
+  width: 90%;
+  height: 90vh;
+  .onlineUsers{
     margin: 5%;
-    font-size: 10px;
-    color: antiquewhite;
+    background-color: rgb(29, 87, 138);
+    border-radius: 20px 0 20px 0;
+  }
+  .usersListContainer{
+    margin: 5%;
+    background-color: rgb(86, 89, 92);
     cursor: pointer;
   }
-  .registerHyperlink:hover {
-    color: #f31a1a;
+  .usersList{
+    font-size: 18px;
+    padding: 5%;
   }
+  .chatCard{
+    margin: 5%;
+    max-height: 100%;
+    background-color: rgb(215, 226, 236);
+    // .chatTextContainer{
+      .chatText{
+        margin: 5%;
+        width: 100%;
+        bottom: 0;
+      }
+    // }
+  }
+}
+
+
+// .chatCard {
+//   // position: absolute;
+//   // width: 25%;
+//   // top: 10%;
+//   margin: 50px;
+//   height: 90%;
+//   .chatTextBox {
+//     position: absolute;
+//     width: 100%;
+//     bottom: 0;
+//     margin: 10px;
+//     max-width: 100%;
+//   }
+//   .actionButton {
+//     margin-left: 2%;
+//   }
+  
+//   .sendButton{
+//     position: absolute;
+//     bottom: -10px;
+//   }
+//   .chatMsg{
+//       min-height: 30px;
+//       background-color: rgb(235, 231, 231);
+//       text-align: center;
+//       width: 60%;
+//       border-radius: 25px;
+//       float: left;
+//       p{
+//           padding: 2px;
+//       }
+//   }
+// }
+// .registerHyperlink {
+//     right: 0;
+//     margin: 5%;
+//     font-size: 10px;
+//     color: antiquewhite;
+//     cursor: pointer;
+//   }
+//   .registerHyperlink:hover {
+//     color: #f31a1a;
+//   }

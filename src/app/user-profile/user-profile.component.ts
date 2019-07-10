@@ -22,6 +22,7 @@ export class UserProfileComponent implements OnInit {
   users;
   connection;
   sendTo: string;
+  selectChat: string;
 
   ngOnInit() {
     this.meanstackService.getUerProfile().subscribe(res => {
