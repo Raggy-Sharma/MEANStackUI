@@ -61,14 +61,14 @@
       </mat-card-content>
       <mat-card-actions>
         <mat-form-field>
-          <input matInput [(ngModel)]="message" (focus)="sendTyping()">
+          <input matInput [(ngModel)]="message">
           <mat-icon matSuffix (click)="sendMessage()">send</mat-icon>
         </mat-form-field>
       </mat-card-actions>
     </mat-card>
   </div>
   <div style="background-color: white; margin: 20%;" fxFlex="50%" fxHide.xs="true">
-    <div *ngFor="let user of users" style="padding: 5%">
+    <div *ngFor="let user of users" style="padding: 5%; text-align: center; cursor: pointer;" (click)="sendTo=user">
       {{user}}
     </div>
     <button (click)="onLogout()">logout</button></div>

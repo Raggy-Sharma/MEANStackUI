@@ -18,7 +18,7 @@ export class ChatService {
   }
 
   sendMessage(message, username) {
-    this.socket.emit('new-message', message, username);
+    this.socket.emit('sendTo', message, username);
   }
 
   getMessages(fromUser) {

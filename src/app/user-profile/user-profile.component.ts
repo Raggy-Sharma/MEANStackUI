@@ -21,6 +21,7 @@ export class UserProfileComponent implements OnInit {
   typing = [];
   users;
   connection;
+  sendTo: string;
 
   ngOnInit() {
     this.meanstackService.getUerProfile().subscribe(res => {
@@ -40,9 +41,9 @@ export class UserProfileComponent implements OnInit {
   }
 
   sendMessage() {
-    console.log(this.userName);
-    this.chatService.sendMessage(this.message, 'ragg92');
-    this.message = '';
+    console.log(this.sendTo);
+    this.chatService.sendMessage(this.message, this.sendTo);
+    // this.message = '';
   }
 
   onLogout() {
