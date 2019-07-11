@@ -30,7 +30,7 @@ export class UserProfileComponent implements OnInit {
       this.userName = res['user'].userName;
       this.chatService.startConnection(this.userName);
       this.connection = this.chatService.getMessages(this.userName).subscribe(message => {
-        this.messages.push(message);
+        this.messages.push({msg: message, messageClass: 'receivedMessage'});
         console.log(message)
       });
       this.connection = this.chatService.getOnlineUsers().subscribe(user => {
@@ -44,7 +44,9 @@ export class UserProfileComponent implements OnInit {
   sendMessage() {
     console.log(this.sendTo);
     this.chatService.sendMessage(this.message, this.sendTo);
-    // this.message = '';
+    this.messages.push({msg: this.message, messageClass: 'sentMessage'});
+    console.log(this.messages)
+    this.message = '';
   }
 
   onLogout() {

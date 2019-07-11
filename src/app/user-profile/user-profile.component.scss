@@ -1,36 +1,56 @@
-.chatPageContainer{
+.chatPageContainer {
   margin: 5%;
   background-color: aliceblue;
   width: 90%;
   height: 90vh;
-  .onlineUsers{
+  overflow: auto;
+  .onlineUsers {
     margin: 5%;
     background-color: rgb(29, 87, 138);
     border-radius: 20px 0 20px 0;
   }
-  .usersListContainer{
+  .usersListContainer {
     margin: 5%;
     background-color: rgb(86, 89, 92);
     cursor: pointer;
   }
-  .usersList{
+  .usersList {
     font-size: 18px;
     padding: 5%;
   }
-  .chatCard{
+  .chatCard {
     margin: 5%;
     max-height: 100%;
     background-color: rgb(215, 226, 236);
+    overflow: auto;
+    .chatContent {
+      height: 80%;
+      overflow: auto;
+      margin: 2% 0 2% 0
+    }
     // .chatTextContainer{
-      .chatText{
-        margin: 5%;
-        width: 100%;
-        bottom: 0;
-      }
+    .chatText {
+      margin: 5%;
+      width: 100%;
+      top: 100%;
+    }
+    .receivedMessage {
+      text-align: left;
+      width: 100%;
+      margin: 0 5% 2% 5%;
+      background-color: rgb(249, 251, 253);
+      border-radius: 20px
+    }
+    .sentMessage {
+      text-align: right;
+      width: 100%;
+      margin: 0 5% 2% 5%;
+      background-color: rgb(249, 251, 253);
+      border-radius: 20px
+    }
     // }
   }
 }
-
 
 // .chatCard {
 //   // position: absolute;
@@ -48,7 +68,7 @@
 //   .actionButton {
 //     margin-left: 2%;
 //   }
-  
+
 //   .sendButton{
 //     position: absolute;
 //     bottom: -10px;
