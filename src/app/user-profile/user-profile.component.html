@@ -1,3 +1,23 @@
+<div class="headerContainer">
+    <mat-toolbar fxLayout="row">
+      <div class="headerBranding">
+        <h1>ChatApp</h1>
+      </div>
+      <div class="userTools">
+        <button mat-button [matMenuTriggerFor]="menu">
+          <mat-icon mat-icon-button aria-label="Clear" style="cursor: pointer">account_circle
+          </mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item disabled>{{fullName}}</button>
+          <button mat-menu-item (click)="onLogout()">
+            <mat-icon mat-icon-button aria-label="Clear" style="cursor: pointer">power_settings_new</mat-icon>
+            Logout
+          </button>
+        </mat-menu>
+      </div>
+    </mat-toolbar>
+  </div>
 <!-- <h1>
   Welcome {{userName}}, 
   <br>

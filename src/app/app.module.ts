@@ -4,10 +4,11 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MatInputModule, MatFormFieldModule, MatToolbarModule, MatButtonModule } from '@angular/material';
+import { MatInputModule, MatFormFieldModule, MatToolbarModule, MatButtonModule, MatIconModule, MatMenuModule } from '@angular/material';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthGuard } from './shared/services/auth.guard';
 import { TokenInterceptor } from './shared/services/http.interceptor';
+
 
 
 @NgModule({
@@ -17,10 +18,12 @@ import { TokenInterceptor } from './shared/services/http.interceptor';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule, 
+    BrowserAnimationsModule,
     HttpClientModule,
     MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatIconModule, 
+    MatMenuModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

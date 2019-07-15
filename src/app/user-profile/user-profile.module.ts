@@ -5,7 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { UserProfileRoutingModule } from './user-profile-routing.module';
 import { UserProfileComponent } from './user-profile.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatInputModule, MatFormFieldModule, MatCardModule, MatButtonModule, MatIconModule } from '@angular/material';
+import { MatInputModule, MatFormFieldModule, MatCardModule, MatToolbarModule, MatButtonModule, MatIconModule, MatMenuModule } from '@angular/material';
+
 
 
 @NgModule({
@@ -19,7 +20,9 @@ import { MatInputModule, MatFormFieldModule, MatCardModule, MatButtonModule, Mat
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatToolbarModule,
+    MatMenuModule
   ]
 })
 export class UserProfileModule { }
